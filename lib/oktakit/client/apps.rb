@@ -342,6 +342,22 @@ module Oktakit
         get("/apps/#{app_id}/credentials/keys", options)
       end
 
+      # List Secret Credentials for Application
+      #
+      # @params app_id [string] Application ID
+      # @param options[:query] [Hash] Optional. Query params for request
+      # @param options[:headers] [Hash] Optional. Header params for the request.
+      # @param options[:accept] [String] Optional. The content type to accept. Default application/json
+      # @param options[:content_type] [String] Optional. The content type for the request. Default application/json
+      # @param options [Hash] Optional. Body params for request.
+      # @return [Array<Sawyer::Resource>] Array of Application Key Credential.
+      # @see http://developer.okta.com/docs/api/resources/apps.html#list-key-credentials-for-application
+      # @example
+      #   Oktakit.list_secret_credentials_for_application('app_id')
+      def list_secret_credentials_for_application(app_id, options = {})
+        get("/apps/#{app_id}/credentials/secrets", options)
+      end
+
       # Get Key Credential for Application
       #
       # @params app_id [string] App ID
